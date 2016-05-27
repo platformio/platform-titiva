@@ -1,0 +1,3 @@
+[submodule "builder/frameworks/libopencm3"]
+	path = builder/frameworks/libopencm3
+	url = https://github.com/platformio/builder-framework-libopencm3.git
