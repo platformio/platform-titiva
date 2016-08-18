@@ -1,16 +1,25 @@
 language: python
 python:
-    - "2.7"
+  - "2.7"
 
 env:
-    - PLATFORMIO_PROJECT_DIR=examples/energia-blink
-    - PLATFORMIO_PROJECT_DIR=examples/energia-internal-libs
-    - PLATFORMIO_PROJECT_DIR=examples/libopencm3-blink
-    - PLATFORMIO_PROJECT_DIR=examples/native-blink
+  - PLATFORMIO_PROJECT_DIR=examples/energia-blink
+  - PLATFORMIO_PROJECT_DIR=examples/energia-internal-libs
+  - PLATFORMIO_PROJECT_DIR=examples/libopencm3-blink
+  - PLATFORMIO_PROJECT_DIR=examples/native-blink
 
 install:
-    - pip install -U https://github.com/platformio/platformio/archive/develop.zip
-    - platformio platform install file://.
+  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - platformio platform install file://.
 
 script:
-    - platformio run -d $PLATFORMIO_PROJECT_DIR
+  - platformio run -d $PLATFORMIO_PROJECT_DIR
+
+notifications:
+  email: false
+
+  slack:
+    rooms:
+      secure: HMmjZOSDeONidu1X7pksdEpU4arrqN2tG+1wtInG1qJDQX1REnPG5yBbzG+CCQBcb1l058cW257F4nuTSElr3iouazYP/77gLEMTTHJkHNCMcXoFrWZxFGfacwHzSEibiagbHEOpGDp7rEKFhjb55jaQQVXqP0Zol6xNXmW+3LEq/BZwsKZLJRKGmf3mO7rWAzG26pCw/5R2wnUbmh7H0TJN6sr+TWkgc+iP6O3KfYykDI7/KBtOOeA5opZ9HjRkR1cpO6s6chaPQWhzQqFILXJ3IxdZqokD+9VzFrg7fdaXmgK70v0h1CIzO6+7eFf5DpB4n3pzaBkhOEND4pN2IF9Z1qAhvJHkD/txVGzmeP9Dgd/MDX4iR/y1I804/auBXtYZW21iG4oB8fPmRZqAdnE5INCOyFU1TKffWHU2S8DqXBIic9uz69aB6uk+TuKPU+D6ij8CCzIrWlzvMWu34vDtwiHDiHFqTmW4p5CHtLq6er8F6TPgt+QFTuDHduikX2/mHAigIzOScomUO3DvUZWwUb8onhGVqIiyOsvzo2pTH/MNrtjJQltbeU5Z2JyrxkzHkRLDBW5BmnWs0sCBDqgXsfBZ/H9SoFLIoA/a9R8WMuzbSWPWc//wzSn4s8Kxw+aLjKiS2jPcV5sesaUjfN/imK5EdKS+ZBxpELbxyKw=
+    on_failure: always
+    on_success: change
