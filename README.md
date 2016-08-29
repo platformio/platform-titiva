@@ -16,5 +16,5 @@ Texas Instruments TM4C12x MCUs offer the industrys most popular ARM Cortex-M4 co
 > platformio platform install titiva
 
 # install development version
-> platformio platform install https://github.com/platformio/platform-titiva/archive/develop.zip
+> platformio platform install https://github.com/platformio/platform-titiva.git
 ```
