@@ -119,16 +119,15 @@ env.Append(
 # Target: Build executable and linkable firmware
 #
 
-target_elf = env.BuildProgram()
-
-#
-# Target: Build the .bin file
-#
-
-if "uploadlazy" in COMMAND_LINE_TARGETS:
+target_elf = None
+if "nobuild" in COMMAND_LINE_TARGETS:
     target_firm = join("$BUILD_DIR", "firmware.bin")
 else:
+    target_elf = env.BuildProgram()
     target_firm = env.ElfToBin(join("$BUILD_DIR", "firmware"), target_elf)
+
+AlwaysBuild(env.Alias("nobuild", target_firm))
+target_buildprog = env.Alias("buildprog", target_firm)
 
 #
 # Target: Print binary size
@@ -143,12 +142,12 @@ AlwaysBuild(target_size)
 # Target: Upload firmware
 #
 
-upload = env.Alias(["upload", "uploadlazy"], target_firm, env.VerboseAction(
-    "$UPLOADCMD", "Uploading $SOURCE"))
-AlwaysBuild(upload)
+target_upload = env.Alias("upload", target_firm,
+                          env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
+AlwaysBuild(target_upload)
 
 #
 # Target: Default targets
 #
 
-Default([target_firm, target_size])
+Default([target_buildprog, target_size])
