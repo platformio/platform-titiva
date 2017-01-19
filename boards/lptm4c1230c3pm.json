@@ -1,21 +1,22 @@
 {
   "build": {
-    "core": "lm4f", 
-    "cpu": "cortex-m4", 
-    "f_cpu": "80000000L", 
-    "ldscript": "lm4fcpp_blizzard.ld", 
-    "mcu": "lptm4c1230c3pm", 
-    "variant": "stellarpad"
-  }, 
+    "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C123GXL",
+    "core": "tivac",
+    "cpu": "cortex-m4",
+    "f_cpu": "80000000L",
+    "ldscript": "lm4fcpp_blizzard.ld",
+    "mcu": "lptm4c1230c3pm",
+    "variant": "EK-TM4C123GXL"
+  },
   "frameworks": [
-    "energia", 
+    "energia",
     "libopencm3"
-  ], 
-  "name": "TI LaunchPad (Tiva C) w/ tm4c123 (80MHz)", 
+  ],
+  "name": "TI LaunchPad (Tiva C) w/ tm4c123 (80MHz)",
   "upload": {
-    "maximum_ram_size": 32768, 
+    "maximum_ram_size": 32768,
     "maximum_size": 262144
-  }, 
-  "url": "http://www.ti.com/ww/en/launchpad/launchpads-connected-ek-tm4c123gxl.html", 
+  },
+  "url": "http://www.ti.com/ww/en/launchpad/launchpads-connected-ek-tm4c123gxl.html",
   "vendor": "TI"
 }
