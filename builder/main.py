@@ -47,9 +47,15 @@ env.Replace(
         "-nostdlib"
     ],
 
+    CFLAGS=[
+        "-std=gnu11"
+    ],
+
     CXXFLAGS=[
         "-fno-rtti",
-        "-fno-exceptions"
+        "-fno-exceptions",
+        "-fno-threadsafe-statics",
+        "-std=gnu++11"
     ],
 
     CPPDEFINES=[
@@ -58,7 +64,6 @@ env.Replace(
 
     LINKFLAGS=[
         "-Os",
-        "-Wl,--gc-sections,--relax",
         "-mthumb",
         "-nostartfiles",
         "-nostdlib"

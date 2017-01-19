@@ -36,7 +36,7 @@
     "framework-energiativa": {
       "type": "framework",
       "optional": true,
-      "version": "~1.17.0"
+      "version": "~1.10002.0"
     },
     "framework-libopencm3": {
       "type": "framework",
