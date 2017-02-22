@@ -9,7 +9,7 @@ Texas Instruments TM4C12x MCUs offer the industrys most popular ARM Cortex-M4 co
 
 # Usage
 
-1. [Install PlatformIO Core](http://docs.platformio.org/en/latest/core.html)
+1. [Install PlatformIO Core](http://docs.platformio.org/page/core.html)
 2. Install TI TIVA development platform:
 ```bash
 # install the latest stable version
