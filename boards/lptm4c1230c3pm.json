@@ -8,6 +8,28 @@
     "mcu": "lptm4c1230c3pm",
     "variant": "EK-TM4C123GXL"
   },
+  "debug": {
+    "tools": {
+      "ti-icdi": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/board/ek-tm4c123gxl.cfg"
+          ]
+        },
+        "gdbinit": [
+          "target remote :3333",
+          "file $PROG_PATH",
+          "load $PROG_PATH",
+          "monitor init",
+          "monitor reset halt",
+          "tb main"
+        ],
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "energia",
     "libopencm3"
