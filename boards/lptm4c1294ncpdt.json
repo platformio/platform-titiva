@@ -8,6 +8,20 @@
     "mcu": "lptm4c1294ncpdt",
     "variant": "EK-TM4C1294XL"
   },
+  "debug": {
+    "tools": {
+      "ti-icdi": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/board/ek-tm4c1294xl.cfg"
+          ]
+        },
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "energia",
     "libopencm3"
