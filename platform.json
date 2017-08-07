@@ -12,10 +12,9 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-titiva.git"
   },
-  "version": "2.0.0",
+  "version": "2.0.1",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
-    "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
     "http://dl.platformio.org/packages/manifest.json"
   ],
   "frameworks": {
@@ -49,7 +48,7 @@
       "version": "~1.103.0"
     },
     "tool-openocd": {
-      "type": "debug",
+      "type": "debugger",
       "optional": true,
       "version": "~1.1000.0"
     }
