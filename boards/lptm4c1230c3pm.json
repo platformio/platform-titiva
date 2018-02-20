@@ -1,8 +1,8 @@
 {
   "build": {
-    "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C123GXL",
     "core": "tivac",
     "cpu": "cortex-m4",
+    "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C123GXL",
     "f_cpu": "80000000L",
     "ldscript": "lm4fcpp_blizzard.ld",
     "mcu": "lptm4c1230c3pm",
@@ -11,14 +11,15 @@
   "debug": {
     "tools": {
       "ti-icdi": {
+        "onboard": true,
         "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
           "arguments": [
-            "-f", "scripts/board/ek-tm4c123gxl.cfg"
-          ]
-        },
-        "onboard": true
+            "-f",
+            "scripts/board/ek-tm4c123gxl.cfg"
+          ],
+          "executable": "bin/openocd",
+          "package": "tool-openocd"
+        }
       }
     }
   },

@@ -1,8 +1,8 @@
 {
   "build": {
-    "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C1294XL",
     "core": "tivac",
     "cpu": "cortex-m4",
+    "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C1294XL",
     "f_cpu": "120000000L",
     "ldscript": "lm4fcpp_snowflake.ld",
     "mcu": "lptm4c1294ncpdt",
@@ -11,14 +11,15 @@
   "debug": {
     "tools": {
       "ti-icdi": {
+        "onboard": true,
         "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
           "arguments": [
-            "-f", "scripts/board/ek-tm4c1294xl.cfg"
-          ]
-        },
-        "onboard": true
+            "-f",
+            "scripts/board/ek-tm4c1294xl.cfg"
+          ],
+          "executable": "bin/openocd",
+          "package": "tool-openocd"
+        }
       }
     }
   },
