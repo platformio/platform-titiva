@@ -9,12 +9,28 @@ Texas Instruments TM4C12x MCUs offer the industrys most popular ARM Cortex-M4 co
 
 # Usage
 
-1. [Install PlatformIO Core](http://docs.platformio.org/page/core.html)
-2. Install TI TIVA development platform:
-```bash
-# install the latest stable version
-> platformio platform install titiva
+1. [Install PlatformIO](http://platformio.org)
+2. Create PlatformIO project and configure a platform option in [platformio.ini](http://docs.platformio.org/page/projectconf.html) file:
 
-# install development version
-> platformio platform install https://github.com/platformio/platform-titiva.git
+## Stable version
+
+```ini
+[env:stable]
+platform = titiva
+board = ...
+...
 ```
+
+## Development version
+
+```ini
+[env:development]
+platform = https://github.com/platformio/platform-titiva.git
+board = ...
+...
+```
+
+# Configuration
+
+Please navigate to [documentation](http://docs.platformio.org/page/platforms/titiva.html).
+
