@@ -9,6 +9,7 @@
     "variant": "EK-TM4C1294XL"
   },
   "debug": {
+    "svd_path": "TM4C1294NCPDT.svd",
     "tools": {
       "ti-icdi": {
         "onboard": true,
