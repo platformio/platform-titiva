@@ -9,6 +9,7 @@
     "variant": "EK-TM4C123GXL"
   },
   "debug": {
+    "svd_path": "lm4f120h5qr.svd",
     "tools": {
       "ti-icdi": {
         "onboard": true,
