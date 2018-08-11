@@ -36,6 +36,22 @@ env.Replace(
 
     ARFLAGS=["rc"],
 
+    UPLOADER="lm4flash",
+    UPLOADCMD='$UPLOADER $SOURCES',
+
+    SIZEPROGREGEXP=r"^(?:\.text|\.data|\.rodata|\.text.align|\.ARM.exidx)\s+(\d+).*",
+    SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
+    SIZECHECKCMD="$SIZETOOL -A -d $SOURCES",
+    SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
+
+    PROGSUFFIX=".elf"
+)
+
+# Allow user to override via pre:script
+if env.get("PROGNAME", "program") == "program":
+    env.Replace(PROGNAME="firmware")
+
+env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
 
     CCFLAGS=[
@@ -71,31 +87,6 @@ env.Replace(
 
     LIBS=["c", "gcc", "m"],
 
-    UPLOADER="lm4flash",
-    UPLOADCMD='$UPLOADER $SOURCES',
-
-    SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
-
-    PROGSUFFIX=".elf"
-)
-
-# Allow user to override via pre:script
-if env.get("PROGNAME", "program") == "program":
-    env.Replace(PROGNAME="firmware")
-
-if "BOARD" in env:
-    env.Append(
-        CCFLAGS=[
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
-        ],
-        LINKFLAGS=[
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
-        ]
-    )
-
-env.Append(
-    ASFLAGS=env.get("CCFLAGS", [])[:],
-
     BUILDERS=dict(
         ElfToBin=Builder(
             action=env.VerboseAction(" ".join([
@@ -122,6 +113,18 @@ env.Append(
     )
 )
 
+if "BOARD" in env:
+    env.Append(
+        CCFLAGS=[
+            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
+        ],
+        LINKFLAGS=[
+            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
+        ]
+    )
+
+# copy CCFLAGS to ASFLAGS (-x assembler-with-cpp mode)
+env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
 
 #
 # Target: Build executable and linkable firmware
