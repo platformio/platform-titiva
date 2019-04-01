@@ -6,13 +6,13 @@
   "homepage": "http://platformio.org/platforms/titiva",
   "license": "Apache-2.0",
   "engines": {
-    "platformio": "^3.0.0"
+    "platformio": "<5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-titiva.git"
   },
-  "version": "2.0.5",
+  "version": "2.0.6",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
@@ -50,7 +50,7 @@
     "tool-openocd": {
       "type": "debugger",
       "optional": true,
-      "version": "~1.1000.0"
+      "version": "~2.1000.0"
     }
   }
 }
