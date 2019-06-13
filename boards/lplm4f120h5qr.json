@@ -15,8 +15,8 @@
         "onboard": true,
         "server": {
           "arguments": [
-            "-f",
-            "scripts/board/ek-lm4f120xl.cfg"
+            "-s", "$PACKAGE_DIR/scripts",
+            "-f", "board/ek-lm4f120xl.cfg"
           ],
           "executable": "bin/openocd",
           "package": "tool-openocd"

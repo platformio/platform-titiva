@@ -19,10 +19,12 @@
 
 from os.path import join
 
-from SCons.Script import (COMMAND_LINE_TARGETS, AlwaysBuild, Builder, Default,
-                          DefaultEnvironment)
+from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
+                          Builder, Default, DefaultEnvironment)
 
 env = DefaultEnvironment()
+platform = env.PioPlatform()
+board = env.BoardConfig()
 
 env.Replace(
     AR="arm-none-eabi-ar",
@@ -35,9 +37,6 @@ env.Replace(
     SIZETOOL="arm-none-eabi-size",
 
     ARFLAGS=["rc"],
-
-    UPLOADER="lm4flash",
-    UPLOADCMD='$UPLOADER $SOURCES',
 
     SIZEPROGREGEXP=r"^(?:\.text|\.data|\.rodata|\.text.align|\.ARM.exidx)\s+(\d+).*",
     SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
@@ -116,10 +115,10 @@ env.Append(
 if "BOARD" in env:
     env.Append(
         CCFLAGS=[
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
+            "-mcpu=%s" % board.get("build.cpu")
         ],
         LINKFLAGS=[
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
+            "-mcpu=%s" % board.get("build.cpu")
         ]
     )
 
@@ -132,6 +131,7 @@ env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
 
 target_elf = None
 if "nobuild" in COMMAND_LINE_TARGETS:
+    target_elf = join("$BUILD_DIR", "${PROGNAME}.elf")
     target_firm = join("$BUILD_DIR", "${PROGNAME}.bin")
 else:
     target_elf = env.BuildProgram()
@@ -152,6 +152,24 @@ AlwaysBuild(target_size)
 #
 # Target: Upload firmware
 #
+
+openocd_args = [
+    "-d%d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1)
+]
+openocd_args.extend(board.get("debug.tools.ti-icdi.server.arguments", []))
+openocd_args.extend([
+    "-c", "program {$SOURCE} %s verify reset; shutdown;" %
+    board.get("upload.offset_address", "")
+])
+openocd_args = [
+    f.replace("$PACKAGE_DIR",
+              platform.get_package_dir("tool-openocd") or "")
+    for f in openocd_args
+]
+env.Replace(
+    UPLOADER="openocd",
+    UPLOADERFLAGS=openocd_args,
+    UPLOADCMD="$UPLOADER $UPLOADERFLAGS")
 
 target_upload = env.Alias("upload", target_firm,
                           env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
