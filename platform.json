@@ -18,6 +18,10 @@
     "http://dl.platformio.org/packages/manifest.json"
   ],
   "frameworks": {
+    "arduino": {
+      "package": "framework-energiativa",
+      "script": "builder/frameworks/energia.py"
+    },
     "energia": {
       "package": "framework-energiativa",
       "script": "builder/frameworks/energia.py"

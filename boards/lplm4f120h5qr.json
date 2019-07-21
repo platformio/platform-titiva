@@ -25,6 +25,7 @@
     }
   },
   "frameworks": [
+    "arduino",
     "energia",
     "libopencm3"
   ],
