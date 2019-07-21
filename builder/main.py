@@ -17,6 +17,7 @@
     Tiva C Series ARM Cortex-M4 microcontrollers.
 """
 
+import sys
 from os.path import join
 
 from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
@@ -124,6 +125,12 @@ if "BOARD" in env:
 
 # copy CCFLAGS to ASFLAGS (-x assembler-with-cpp mode)
 env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
+
+if "energia" in env.get("PIOFRAMEWORK", []):
+    sys.stderr.write(
+        "WARNING!!! Using of `framework = energia` in `platformio.ini` is "
+        "deprecated. Please replace with `framework = arduino`.\n")
+    env.Replace(PIOFRAMEWORK=["arduino"])
 
 #
 # Target: Build executable and linkable firmware
