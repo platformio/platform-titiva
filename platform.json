@@ -12,12 +12,16 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-titiva.git"
   },
-  "version": "2.0.8",
+  "version": "2.1.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
   ],
   "frameworks": {
+    "arduino": {
+      "package": "framework-energiativa",
+      "script": "builder/frameworks/energia.py"
+    },
     "energia": {
       "package": "framework-energiativa",
       "script": "builder/frameworks/energia.py"

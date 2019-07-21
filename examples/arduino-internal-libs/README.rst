@@ -20,7 +20,7 @@ How to build PlatformIO based project
 .. code-block:: bash
 
     # Change directory to example
-    > cd platform-titiva/examples/energia-blink
+    > cd platform-titiva/examples/arduino-internal-libs
 
     # Build project
     > platformio run

@@ -25,7 +25,7 @@
     }
   },
   "frameworks": [
-    "energia",
+    "arduino",
     "libopencm3"
   ],
   "name": "TI LaunchPad (Tiva C) w/ tm4c123 (80MHz)",

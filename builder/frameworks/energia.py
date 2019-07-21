@@ -35,6 +35,7 @@ FRAMEWORK_DIR = platform.get_package_dir("framework-energiativa")
 FRAMEWORK_VERSION = platform.get_package_version("framework-energiativa")
 assert isdir(FRAMEWORK_DIR)
 
+
 env.Append(
     CPPDEFINES=[
         ("ARDUINO", 10805),
