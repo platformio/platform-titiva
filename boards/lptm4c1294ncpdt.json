@@ -1,10 +1,12 @@
 {
   "build": {
+    "arduino":{
+      "ldscript": "lm4fcpp_snowflake.ld"
+    },
     "core": "tivac",
     "cpu": "cortex-m4",
     "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C1294XL",
     "f_cpu": "120000000L",
-    "ldscript": "lm4fcpp_snowflake.ld",
     "mcu": "lptm4c1294ncpdt",
     "variant": "EK-TM4C1294XL"
   },

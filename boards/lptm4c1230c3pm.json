@@ -1,10 +1,12 @@
 {
   "build": {
+    "arduino":{
+      "ldscript": "lm4fcpp_blizzard.ld"
+    },
     "core": "tivac",
     "cpu": "cortex-m4",
     "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C123GXL",
     "f_cpu": "80000000L",
-    "ldscript": "lm4fcpp_blizzard.ld",
     "mcu": "lptm4c1230c3pm",
     "variant": "EK-TM4C123GXL"
   },
