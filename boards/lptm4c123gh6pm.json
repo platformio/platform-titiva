@@ -1,0 +1,40 @@
+{
+  "build": {
+    "arduino":{
+      "ldscript": "lm4fcpp_blizzard.ld"
+    },
+    "core": "tivac",
+    "cpu": "cortex-m4",
+    "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C123GXL",
+    "f_cpu": "80000000L",
+    "mcu": "lptm4c123gh6pm",
+    "variant": "EK-TM4C123GXL"
+  },
+  "debug": {
+    "svd_path": "TM4C123GH6PM.svd",
+    "tools": {
+      "ti-icdi": {
+        "onboard": true,
+        "server": {
+          "arguments": [
+            "-s", "$PACKAGE_DIR/scripts",
+            "-f", "board/ek-tm4c123gxl.cfg"
+          ],
+          "executable": "bin/openocd",
+          "package": "tool-openocd"
+        }
+      }
+    }
+  },
+  "frameworks": [
+    "arduino",
+    "libopencm3"
+  ],
+  "name": "TI LaunchPad (Tiva C) w/ tm4c123 (80MHz)",
+  "upload": {
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144
+  },
+  "url": "http://www.ti.com/ww/en/launchpad/launchpads-connected-ek-tm4c123gxl.html",
+  "vendor": "TI"
+}
