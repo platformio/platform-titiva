@@ -1,17 +1,26 @@
-/*----------------------------------------------------------------------------
- * Name:    LEDpriv.h
- * Purpose: low level LED functions
- * Note(s):
- *----------------------------------------------------------------------------
- * This file is part of the uVision/ARM development tools.
- * This software may only be used under the terms of a valid, current,
- * end user licence from KEIL for a compatible version of KEIL software
- * development tools. Nothing else gives you the right to use this software.
- *
- * This software is supplied "AS IS" without warranties of any kind.
- *
- * Copyright (c) 2013 Keil - An ARM Company. All rights reserved.
- *----------------------------------------------------------------------------*/
+/*
+  ************************************************************************
+  *	LEDpriv.h
+  *
+  *	This file is used for internal test purpose
+  *		Copyright (c) 2020 Lei Zhang. All right reserved.
+  *
+  *
+  ***********************************************************************
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
 #ifndef __LED_PRIV_H
 #define __LED_PRIV_H
 
