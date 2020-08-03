@@ -13,6 +13,7 @@ jobs:
           - "examples/arduino-blink"
           - "examples/arduino-internal-libs"
           - "examples/libopencm3-blink"
+          - "examples/libopencm3-usb-cdcacm"
           - "examples/native-blink"
     runs-on: ${{ matrix.os }}
     steps:
