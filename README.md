@@ -1,6 +1,6 @@
 # TI TIVA: development platform for [PlatformIO](http://platformio.org)
-[![Build Status](https://travis-ci.org/platformio/platform-titiva.svg?branch=develop)](https://travis-ci.org/platformio/platform-titiva)
-[![Build status](https://ci.appveyor.com/api/projects/status/x7y7i3tqylwpgn98/branch/develop?svg=true)](https://ci.appveyor.com/project/ivankravets/platform-titiva/branch/develop)
+
+[![Build Status](https://github.com/platformio/platform-titiva/workflows/Examples/badge.svg)](https://github.com/platformio/platform-titiva/actions)
 
 Texas Instruments TM4C12x MCUs offer the industrys most popular ARM Cortex-M4 core with scalable memory and package options, unparalleled connectivity peripherals, advanced application functions, industry-leading analog integration, and extensive software solutions.
 

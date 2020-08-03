@@ -2,9 +2,14 @@
   "name": "titiva",
   "title": "TI TIVA",
   "description": "Texas Instruments TM4C12x MCUs offer the industrys most popular ARM Cortex-M4 core with scalable memory and package options, unparalleled connectivity peripherals, advanced application functions, industry-leading analog integration, and extensive software solutions.",
-  "url": "http://www.ti.com/lsds/ti/microcontrollers_16-bit_32-bit/c2000_performance/control_automation/tm4c12x/overview.page",
-  "homepage": "http://platformio.org/platforms/titiva",
+  "homepage": "http://www.ti.com/lsds/ti/microcontrollers_16-bit_32-bit/c2000_performance/control_automation/tm4c12x/overview.page",
   "license": "Apache-2.0",
+  "keywords": [
+      "dev-platform",
+      "ARM",
+      "Texas Instruments",
+      "Tiva"
+  ],
   "engines": {
     "platformio": "<5"
   },
@@ -12,7 +17,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-titiva.git"
   },
-  "version": "2.1.1",
+  "version": "3.0.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
@@ -44,7 +49,7 @@
     "framework-libopencm3": {
       "type": "framework",
       "optional": true,
-      "version": "~1.1.0"
+      "version": "~1.10000.0"
     },
     "tool-openocd": {
       "type": "uploader",
