@@ -39,21 +39,25 @@
   "packages": {
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
+      "owner": "platformio",
       "version": ">=1.40803.0,<1.40805.0"
     },
     "framework-energiativa": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.10002.0"
     },
     "framework-libopencm3": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.10000.0"
     },
     "tool-openocd": {
       "type": "uploader",
       "optional": true,
+      "owner": "platformio",
       "version": "~2.1000.0"
     }
   }
