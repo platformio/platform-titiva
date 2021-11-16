@@ -7,11 +7,11 @@
     "cpu": "cortex-m4",
     "extra_flags": "-DENERGIA_ARCH_TIVAC -DENERGIA_EK_TM4C123GXL",
     "f_cpu": "80000000L",
-    "mcu": "lptm4c1230c3pm",
+    "mcu": "lptm4c123gh6pm",
     "variant": "EK-TM4C123GXL"
   },
   "debug": {
-    "svd_path": "TM4C1230C3PM.svd",
+    "svd_path": "TM4C123GH6PM.svd",
     "tools": {
       "ti-icdi": {
         "onboard": true,
