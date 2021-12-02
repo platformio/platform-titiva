@@ -7,8 +7,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-16.04, windows-latest, macos-latest]
-        python-version: [2.7, 3.7]
+        os: [ubuntu-18.04, windows-latest, macos-latest]
+        python-version: [3.7]
         example:
           - "examples/arduino-blink"
           - "examples/arduino-internal-libs"
