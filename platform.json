@@ -11,17 +11,13 @@
       "Tiva"
   ],
   "engines": {
-    "platformio": "<5"
+    "platformio": "^5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-titiva.git"
   },
-  "version": "3.0.0",
-  "packageRepositories": [
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
-    "http://dl.platformio.org/packages/manifest.json"
-  ],
+  "version": "3.0.1",
   "frameworks": {
     "arduino": {
       "package": "framework-energiativa",
@@ -39,21 +35,25 @@
   "packages": {
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
+      "owner": "platformio",
       "version": ">=1.40803.0,<1.40805.0"
     },
     "framework-energiativa": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.10002.0"
     },
     "framework-libopencm3": {
       "type": "framework",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.10000.0"
     },
     "tool-openocd": {
       "type": "uploader",
       "optional": true,
+      "owner": "platformio",
       "version": "~2.1000.0"
     }
   }
