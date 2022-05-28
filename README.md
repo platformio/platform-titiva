@@ -1,4 +1,4 @@
-# TI TIVA: development platform for [PlatformIO](http://platformio.org)
+# TI TIVA: development platform for [PlatformIO](https://platformio.org)
 
 [![Build Status](https://github.com/platformio/platform-titiva/workflows/Examples/badge.svg)](https://github.com/platformio/platform-titiva/actions)
 
@@ -9,7 +9,7 @@ Texas Instruments TM4C12x MCUs offer the industrys most popular ARM Cortex-M4 co
 
 # Usage
 
-1. [Install PlatformIO](http://platformio.org)
+1. [Install PlatformIO](https://platformio.org)
 2. Create PlatformIO project and configure a platform option in [platformio.ini](https://docs.platformio.org/page/projectconf.html) file:
 
 ## Stable version
