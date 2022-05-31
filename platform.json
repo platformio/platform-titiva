@@ -11,13 +11,13 @@
       "Tiva"
   ],
   "engines": {
-    "platformio": "^5"
+    "platformio": "^6"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-titiva.git"
   },
-  "version": "3.0.1",
+  "version": "3.1.0",
   "frameworks": {
     "arduino": {
       "package": "framework-energiativa",

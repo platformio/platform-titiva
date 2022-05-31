@@ -51,15 +51,21 @@ env.Replace(
 if env.get("PROGNAME", "program") == "program":
     env.Replace(PROGNAME="firmware")
 
-env.Append(
-    ASFLAGS=["-x", "assembler-with-cpp"],
+machine_flags = [
+    "-mthumb",
+]
 
-    CCFLAGS=[
+env.Append(
+    ASFLAGS=machine_flags,
+    ASPPFLAGS=[
+        "-x", "assembler-with-cpp",
+    ],
+
+    CCFLAGS=machine_flags + [
         "-Os",  # optimize for size
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
         "-Wall",
-        "-mthumb",
         "-nostdlib"
     ],
 
@@ -78,9 +84,8 @@ env.Append(
         ("F_CPU", "$BOARD_F_CPU")
     ],
 
-    LINKFLAGS=[
+    LINKFLAGS=machine_flags + [
         "-Os",
-        "-mthumb",
         "-nostartfiles",
         "-nostdlib"
     ],
@@ -115,6 +120,9 @@ env.Append(
 
 if "BOARD" in env:
     env.Append(
+        ASFLAGS=[
+            "-mcpu=%s" % board.get("build.cpu")
+        ],
         CCFLAGS=[
             "-mcpu=%s" % board.get("build.cpu")
         ],
@@ -122,9 +130,6 @@ if "BOARD" in env:
             "-mcpu=%s" % board.get("build.cpu")
         ]
     )
-
-# copy CCFLAGS to ASFLAGS (-x assembler-with-cpp mode)
-env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
 
 if "energia" in env.get("PIOFRAMEWORK", []):
     sys.stderr.write(

@@ -35,22 +35,26 @@ FRAMEWORK_DIR = platform.get_package_dir("framework-energiativa")
 FRAMEWORK_VERSION = platform.get_package_version("framework-energiativa")
 assert isdir(FRAMEWORK_DIR)
 
+machine_flags = [
+    "-mabi=aapcs",
+    "-mfloat-abi=hard",
+    "-mfpu=fpv4-sp-d16",
+]
 
 env.Append(
+    ASFLAGS=machine_flags,
+
+    CCFLAGS=machine_flags + [
+        "--param", "max-inline-insns-single=500"
+    ],
+
     CPPDEFINES=[
         ("ARDUINO", 10805),
         ("ENERGIA", int(FRAMEWORK_VERSION.split(".")[1])),
         ("printf", "iprintf")
     ],
 
-    CCFLAGS=[
-        "-mfloat-abi=hard",
-        "-mfpu=fpv4-sp-d16",
-        "-mabi=aapcs",
-        "--param", "max-inline-insns-single=500"
-    ],
-
-    LINKFLAGS=[
+    LINKFLAGS=machine_flags + [
         "-Wl,--entry=ResetISR",
         # "-Wl,--cref",
         "-Wl,--check-sections",
@@ -58,8 +62,6 @@ env.Append(
         "-Wl,--unresolved-symbols=report-all",
         "-Wl,--warn-common",
         "-Wl,--warn-section-align",
-        "-mfloat-abi=hard",
-        "-mfpu=fpv4-sp-d16",
         "-fsingle-precision-constant"
     ],
 
