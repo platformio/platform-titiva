@@ -30,6 +30,11 @@ board = ...
 ...
 ```
 
+## Project Examples
+
+- [UTAustinX UT.6.10x Embedded Systems - Shape The World: Microcontroller Input/Output](https://github.com/Alighorab/UT.6.10x.Labs.git)
+- [UTAustinX UT.6.10x Embedded Systems - Shape The World: Multi-Threaded Interfacing](https://github.com/Alighorab/UT.6.20x.Labs.git) (still in progress)
+
 # Configuration
 
 Please navigate to [documentation](https://docs.platformio.org/page/platforms/titiva.html).
